@@ -1,4 +1,4 @@
-
+import { transacaoNoEstoque, getEstoque, limpaEstoque } from "./estoque.js";
 
 document.entrada.addEventListener('submit', leFormulario)
 
