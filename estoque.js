@@ -55,4 +55,35 @@ export function limpaEstoque() {
     estoque = {};
 };
 
+function dePessoaParaPessoa(origem, destino, quantidade, fruta) {
+    const da = estoque[origem];
+    const recebe = estoque[destino];
+    let monteD;
+    let monteR;
+    for (let i = 0; i < da.length; i++) {
+        if (da[i].tipo === fruta) {
+            monteD = da[i];
+            break;
+        }
+    }
+    for (let i = 0; i < recebe.length; i++) {
+        if (recebe[i].tipo === fruta) {
+            monteR = recebe[i];
+            break;
+        }
+    }
+    if (!monteD) {
+        monteD = { tipo: fruta, quantidade: 0 };
+        da.push(monteD);
+    }
 
+    if (!monteR) {
+        monteR = { tipo: fruta, quantidade: 0 };
+        recebe.push(monteR);
+    }
+    if (monteD && monteR && monteD.quantidade > 0) {
+        const quantidadeEnviada = Math.min(quantidade, monteD.quantidade);
+        monteD.quantidade -= quantidadeEnviada;
+        monteR.quantidade += quantidadeEnviada;
+    }
+}
