@@ -55,7 +55,7 @@ export function limpaEstoque() {
     estoque = {}
 };
 
-function dePessoaParaPessoa(origem, destino, quantidade, fruta) {
+function dePessoaParaPessoa(origem, destino, quantidade, fruta) { //O comportamento de Maria para João não está funcionando, mas em tela está, não sei o porque.
     const da = estoque[origem];
     const recebe = estoque[destino];
     let monteD;
