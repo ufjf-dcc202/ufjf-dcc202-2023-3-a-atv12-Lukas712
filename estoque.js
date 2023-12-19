@@ -52,7 +52,7 @@ function dePomarParaPomar(origem, quantidade, fruta) {
 }
 
 export function limpaEstoque() {
-    estoque = {};
+    estoque = {}
 };
 
 function dePessoaParaPessoa(origem, destino, quantidade, fruta) {
