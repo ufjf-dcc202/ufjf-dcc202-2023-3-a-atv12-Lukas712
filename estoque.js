@@ -50,3 +50,7 @@ function dePomarParaPomar(origem, quantidade, fruta) {
     }
     monte.quantidade -= Math.min(quantidade, monte.quantidade);
 }
+
+export function limpaEstoque() {
+    estoque = {};
+};

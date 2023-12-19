@@ -1,4 +1,4 @@
-import { at } from "vitest/dist/reporters-5f784f42";
+
 
 document.entrada.addEventListener('submit', leFormulario)
 
@@ -23,4 +23,11 @@ function preencheListaPessoa(pessoa, lista) {
         eLi.innerText = `${monte.tipo}: ${monte.quantidade}`;
         lista.append(eLi);
     }
+}
+
+function limparEstoque() {
+    limpaEstoque();
+    const estoque = getEstoque();
+    preencheListaPessoa(estoque['joao'], olJoao);
+    preencheListaPessoa(estoque['maria'], olMaria);
 }
