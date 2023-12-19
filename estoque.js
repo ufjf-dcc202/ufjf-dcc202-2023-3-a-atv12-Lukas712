@@ -54,3 +54,5 @@ function dePomarParaPomar(origem, quantidade, fruta) {
 export function limpaEstoque() {
     estoque = {};
 };
+
+
