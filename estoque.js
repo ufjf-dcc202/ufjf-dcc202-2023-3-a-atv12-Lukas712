@@ -24,3 +24,29 @@ export function transacaoNoEstoque(Origem, Destino, fruta, quantidade) {
         dePessoaParaPessoa(Origem, Destino, quantidade, fruta);
     }
 }
+
+function dePomarParaPessoa(destino, quantidade, fruta) {
+    const pessoa = estoque[destino];
+    let monte = pessoa.find(item => item.tipo === fruta);
+    if (!monte) {
+        monte = { tipo: fruta, 'quantidade': 0 };
+        pessoa.push(monte);
+    }
+    monte.quantidade += quantidade;
+    monte.tipo = fruta;
+}
+
+function dePomarParaPomar(origem, quantidade, fruta) {
+    const pessoa = estoque[origem];
+    let monte;
+    for (let i = 0; i < pessoa.length; i++) {
+        if (pessoa[i].tipo === fruta) {
+            monte = pessoa[i];
+            break;
+        }
+    }
+    if (!monte) {
+        return;
+    }
+    monte.quantidade -= Math.min(quantidade, monte.quantidade);
+}
