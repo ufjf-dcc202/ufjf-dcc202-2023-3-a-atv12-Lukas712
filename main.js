@@ -9,6 +9,7 @@ remove.addEventListener('click', limparEstoque);
 
 atualizaTela();
 
+
 function atualizaTela() {
     const estoque = getEstoque();
     preencheListaPessoa(estoque['joao'], olJoao);
@@ -30,4 +31,19 @@ function limparEstoque() {
     const estoque = getEstoque();
     preencheListaPessoa(estoque['joao'], olJoao);
     preencheListaPessoa(estoque['maria'], olMaria);
+}
+
+function leFormulario(event) {
+    event.preventDefault();
+    const fruta = document.entrada.fruta.value;
+    const quantidade = Number(document.entrada.quantidade.value);
+    const origem = document.entrada.origem.value;
+    const destino = document.entrada.destino.value;
+
+    console.log(`Solicitado: ${origem} doa ${quantidade} ${fruta} para ${destino}`);
+    //document.entrada.submit();
+
+    transacaoNoEstoque(origem, destino, fruta, quantidade);
+    atualizaTela();
+
 }
